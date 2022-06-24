@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Metodos SLIDE</title>
+<script type="text/javascript"src="jquery-1.11.2.min.js"></script>
+<script languaje="JavaScript">
+$(document).ready(function(){
+            $("#deslizar").click(function(event){
+                $("#rectangulo").slideUp(4000);
+            });
+            $("#deslizar2").click(function(event){
+                $("#rectangulo").slideDown(1000);
+            });
+            $("#lento").click(function(event){
+                $("#rectangulo").slideUp("slow");
+            });
+            $("#rapido").click(function(event){
+                $("#rectangulo").slideDown("fast");
+            });
+            $("#color").click(function(event) { 
+                    $("#rectangulo").css({backgroundColor:'#FF0000'});
+                });
+            $("#conMensaje").click(function(event){
+                $("#rectangulo").slideUp(4000, function(){
+                    alert("Efecto terminado");
+                    $("#rectangulo").slideDown("fast");
+                });
+            });
+            $("#Toggle").click(function(event){
+                $("#rectangulo").slideToggle(2000);
+            });
+            
+});
+</script>
+</head>
+<body>
+    <input type="button" id="deslizar" value="Ocultar en 4000 milisegundos"></input>
+    <input type="button" id="deslizar2" value="Mostrar en 1000 milisegundos"></input>
+    <input type="button" id="lento" value="Ocultar lento"></input>
+    <input type="button" id="rapido" value="Mostrar rapido"></input>
+    <input type="button" id="color" value="cambiar color">
+    <input type="button" id="conMensaje" value="Mostrar Mensaje Final"></input>
+    <input type="button" id="Toggle" value="Efecto Slide Toggle"></input>
+    <div id="rectangulo" style="padding: 500px 30px 30px 300px; background-color: yellow;"></div>
+</body>
+</html>

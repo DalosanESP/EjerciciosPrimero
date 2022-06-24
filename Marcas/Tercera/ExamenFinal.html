@@ -1,0 +1,44 @@
+<html>
+    <head>
+    <title>Carrito de la Compra</title>
+    <link rel="stylesheet" href="Estilos4.css"/>
+    <script type="application/javascript">
+    function ver(){
+        cesta.innerHTML = "";
+        if(sessionStorage.length ==0)
+            cesta.innerHTML = "<h5>Vacio</h5>";
+            else{
+                cesta.innerHTML="<table class=pro width=90%><tr><th>NOMBRE</th><th>APELLIDO</th></tr></table>"
+                for(var i = 0; i < sessionStorage.length; i++) {
+                        var nombre = sessionStorage.key(i);
+                        var apellido = sessionStorage.getItem(clave);
+                        cesta.innerHTML += "<table class=pro width=90%><tr><td>" + nombre + "></td><td>" + apellido + "</td></tr></table>";
+                    }                                               
+            }
+    }
+   
+    function almacenar(codigo){//el codigo es el modelo del pc (asus, hp..)
+        if(sessionStorage.getItem(codigo)==null)
+            sessionStorage.setItem(codigo,1);
+        else
+            sessionStorage.setItem(codigo,parseInt(sessionStorage.getItem(codigo))+1);
+            
+        ver();
+        }
+    </script>
+    </head>
+    <body onload="ver()">
+     <div id="principal">
+        Nombre: <input type="text" name="nombre"  id="nombre">
+        Apellido: <input type="text" name="apellido"  id="apellido">
+        <td><input type="button" value="Añadir" onclick="almacenar('HP')"></td>
+         </div>
+         <div id="carrito">
+             <h4>Este es el estado de la base de datos</h4>
+             <div id="nombre"></div>
+             <div id="apellido"></div>
+         </div>
+         <div id="pie"></div>
+     </div>
+    </body>
+</html>

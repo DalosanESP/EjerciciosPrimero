@@ -1,0 +1,27 @@
+<html>
+    <head>
+    <title>Menu desplegble 3D</title>
+    <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="jquery-ui.structure.css"/>
+    
+    <script language="JavaScript">
+        $(document).ready(function(event){
+            $("body").keydown(function(event){
+                if(String.fromCharCode(event.which)=='A'){
+                    setInterval(function(){
+            $("#capa0").animate({'font-size':"25pt",'opacity':'1'},5000,function(){
+                $("#capa0").animate({'font-size':"5pt",'opacity':'0'},5000);
+                }); 
+                },10000);
+            };
+        });
+    });
+
+    </script>
+    </head>
+    <body align="center">
+        <span style="opacity:0; font-size: 5pt;"" id="capa0">Capa en la que cambiamos tamaño y opacidad</span>
+
+    </body>
+</html>

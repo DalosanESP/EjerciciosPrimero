@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>Paginas Mutantes</title>
+<script language="JavaScript">
+function reloj(){
+    var fehcha=new Date();
+    var hora = fehcha.getHours();
+    var minuto = fehcha.getMinutes();
+    var segundo = fehcha.getSeconds();
+    var horaStr="";
+    horaStr=((hora < 10)?"0":"") + hora;
+    horaStr+=((minuto < 10)?"0":"",":") + minuto;
+    horaStr+=((segundo < 10)?"0":"",":") + segundo;
+    caja.value=horaStr;
+}
+</script>
+</head>
+<body onload="setInterval('reloj()', 1000)">
+    <input id="caja" size="8">
+</body>
+</html>

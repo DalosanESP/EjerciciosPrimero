@@ -1,0 +1,35 @@
+<html>
+<head>
+<title> Ejercicio 2</title>
+<link rel="stylesheet" href="Marcas021.css" type="text/css">
+<style type ="text/css">
+    #amarillo,#verde{background-color: black;}
+    #amarillo:hover.amarillo{background-color: yellow;}
+    #verde:hover.verde{background-color: green;}
+    </style>
+<script type="text/javascript"src="jquery-1.11.2.min.js"></script>
+<script>
+$(document).ready(function(event){
+    $("#rojo").click(function(event){
+                $("#rojo").fadeOut(5000);
+            }); 
+            $("#amarillo").click(function(event){
+                $("#amarillo").fadeOut(5000);
+            }); 
+            $("#verde").click(function(event){
+                $("#verde").fadeOut(5000);
+            }); 
+});
+
+</script>
+</head>
+<body>
+    <div id="semaforo" style="width: 100px;height: 100px; background-color: black; position: absolute;">
+    <div id="rojo" id="semaforo" style="width: 100px;height: 100px; background-color: red;"></div>
+    <div id="amarillo" id="semaforo" style="width: 100px;height: 100px;"></div>
+    <div id="verde" id="semaforo" style="width: 100px;height: 100px;"></div>
+    </div>
+    
+</body>
+</html>
+TERMINAR

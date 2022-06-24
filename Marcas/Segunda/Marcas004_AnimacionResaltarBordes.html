@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Animacion de Fondo</title>
+<script type="text/javascript"src="jquery-1.11.2.min.js"></script>
+<script languaje="JavaScript">
+$(document).ready(function(){
+    $("#mover1").click(function(){
+        $("#capa0").animate({outlineColor:'#FF000'});
+        $("#capa1").animate({borderWidth:"15px", borderColor:"#FF0000"});
+   });
+    
+   $("#mover2").click(function(){
+        $("#capa0").animate({outlineWidth:"15px", borderColor:'#FF000'},1000);
+        $("#capa1").animate({borderWidth:"15px", borderColor:"#FF0000"},1000);
+});
+});
+
+</script>
+</head>
+<body>
+    <span style="outline: 1px solid #000FFF" id="capa0">Capa en la que cambiamos la propiedad outline</span>
+    <span style="border: 1px solid #000FFF" id="capa1">Capa en la que cambiamos la propiedad outline</span>
+    <br><br><br><br>
+    <input type="button" id="mover1" value="Ampliar marco">
+    <input type="button" id="mover2" value="Ampliar marco realentizado">
+</body>
+</html>

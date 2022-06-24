@@ -1,0 +1,49 @@
+<html>
+    <head>
+    <title>Formulario con HTML5</title>
+    <link rel="stylesheet" href="Estilos.css"/>
+    <script language="JavaScript">
+        function mostrarEdad(valor){
+            verEdad.innerHTML=valor;
+        }
+    </script>
+    </head>
+    <body>
+        <form action="">
+            <h2>Formulario HTML5</h2>
+            <p>
+                Nombre: <input type="text" name="nombre" autofocus required>
+                <! –– autofocus es para empezar escribiendo alli, required idncia que es obligatorio ––>
+            </p>
+            <p>
+                Email: <input type="email" name="email" placeholder="Introduzca su Email">
+            </p>
+            <p>
+                Edad: <input type="range" min= "18" max="70" value= "40" name="edad"
+                        onchange="mostrarEdad(this.value)"><span id="verEdad">40</span>
+            </p>
+            <p>
+                Color Favorito: <input type="color" >
+            </p>
+            <p>
+                Web: <input type="url" name="web" autocomplete="on" >
+            </p>
+            <p>
+                Numero de 0 a 10: <input type="number" name="numero" min="0" max="10" step="2" >
+                <! –– el step 2 es para que vaya de dos en dos ––>
+            </p>
+            <p>
+                Destinatario: <input type="email" name="destinatario" list="listaDestinatarios">
+                    <datalist id="listaDestinatarios">
+                        <option value="admin@salesianos.edu">Administrador</option>
+                        <option value="alumno@salesianos.edu">Alumno</option>
+                        <option value="profesor@salesianos.edu">Profesor</option>
+                </datalist>
+            </p>
+            <p>
+                <input type="submit"> 
+                
+            </p>
+        </form>
+    </body>
+</html>

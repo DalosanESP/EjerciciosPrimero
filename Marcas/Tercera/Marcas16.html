@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Base de datos SQLite</title>
+        <script type="application/javascript"> // HTML5
+           function cargar(){//openDatabase crea o abre una base de datos
+               var db = openDatabase("MiBaseDatos","1.0","Comentario sobre DB","2*1024*1024");//nombre de la base de datos, version, comentarios, dimensiones
+                db.transaction(function(tx){//tx es la base de datos
+                    tx.executeSql(//para ejeccutar consultas sql
+                        "create table if not exists datos(codigo unique, nombre)");
+                        tx.executeSql("insert into datos(codigo,nombre) values(1,'Obi-Wan')");
+                        tx.executeSql("insert into datos(codigo,nombre) values(2,'Anakin')");
+                });
+            } 
+        
+            
+        </script>
+    </head>
+    <body onload="cargar()">
+      
+    </body>
+</html>

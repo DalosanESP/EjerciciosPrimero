@@ -1,0 +1,19 @@
+<html>
+<head>
+<title> Anadir botones, metodo append</title>
+<script type="text/javascript"src="jquery-1.11.2.min.js"></script>
+<script languaje="JavaScript">
+var imagen = $("<img>",{src:"./Imagenes/fondo.jpg",id:"imagen",width:"200",
+                                                css:{"padding":"2px","cursor":"pointer"},
+                                                click:function(e){document.location="Marcas012.html"}});
+$(document).ready(function(){
+    $("#boton").click(function(){
+        $("body").append(imagen);
+    });
+});
+</script>
+</head>
+<body>
+  <input type="button" id="boton" value="Anadir">       
+</body>
+</html>

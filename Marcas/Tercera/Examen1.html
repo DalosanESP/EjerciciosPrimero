@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>examen 1</title>
+        <link rel="stylesheet">
+        <script type="application/javascript">
+            function cargar(nom, ape){
+                sessionStorage.setItem(nom, ape);
+                for(i = 0; i < sessionStorage.length; i++) {
+                    var clave = sessionStorage.key(i);
+                    var valor = sessionStorage.getItem(clave);
+                    mostarContenido.innerHTML = "nombre: " + clave + " apellido: " + valor;
+                }
+                leer();   
+            };
+            function cargarTabla(){
+                var db = openDatabase('MiBaseDatos', '1.0', 'Comentario sobre DB', 2 * 1024 * 1024);
+                db.transaction(function(tx){
+                    tx.executeSql('CREATE TABLE IF NOT EXISTS EXAMEN(nombre, apellido)');
+                        for(i = 0; i < sessionStorage.length; i++) {
+                            var clave = sessionStorage.key(i);
+                            var valor = sessionStorage.getItem(clave);
+                            tx.executeSql('INSERT INTO EXAMEN(nombre, apellido) VALUES('+ clave + ", '" + valor + "')");
+                        }
+                });
+                leer(); 
+            };
+            function leer(){
+                var db = openDatabase('MiBaseDatos', '1.0', 'Comentario sobre DB', 2 * 1024 * 1024);
+                db.transaction(function(tx){
+                    tx.executeSql('SELECT * FROM EXAMEN', [], function(tx, resultados){ 
+                        var len = resultados.rows.length;
+                        for(i = 0; i < len; i++){
+                            msg += "<p> nombre y apellido: " +  resultados.rows.item(i).nombre + "-" + resultados.rows.item(i).apellido + "</p>"; 
+                        };  
+                        contenidoTabla.innerHTML = msg;
+                    });
+                });
+            }           
+        </script>
+    </head>
+    <body onload="leer()">
+            <table align="center" border="1">
+                <tr>
+                    <td>Nombre:</td>
+                    <td><input type="text" id="nombre" name="nombre"></td>
+                    <td>Apellidos:</td>
+                    <td><input type="text" id="apellido" name="apellido"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="button" value="Cargar SessionStorage" onclick="cargar(document.getElementById('nombre').value, document.getElementById('apellido').value)"></td>
+                </tr>
+            </table>
+            <div id="mostarContenido"></div>
+            <div>
+                <p align="center">
+                    <input type="button" id="cargarTabla" value="cargar en la tabla" onclick="cargarTabla()">
+                </p>
+            </div>
+            <div id="contenidoTabla"></div>
+    </body>
+</html>

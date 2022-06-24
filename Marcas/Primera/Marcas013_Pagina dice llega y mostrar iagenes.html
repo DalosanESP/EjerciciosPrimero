@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>Elementos del Objeto</title>
+<style type="text/css">
+
+</style>
+<script language="JavaScript">
+function mostrar(){
+	for(i=0; i< document.all.length; i++)
+		alert(document.all[i].tagName);
+	for(i=0; i< document.images.length; i++)
+		alert(document.images[i].src)
+}
+</script>
+</head>
+<body onload="mostrar()">
+<img src="Imagenes/Cruz.png" width="5%">
+<img src="Imagenes/Circulo.png" width="5%">
+</body>
+</html>

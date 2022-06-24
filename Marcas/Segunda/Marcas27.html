@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Enlaces</title>
+<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+<link rel="stylesheet" href="css/jquery-ui.structure.css">
+<style>
+    #pato1{
+        position:absolute;left: 150px;top: 70px;
+    }
+    #pato2{
+        position:absolute;left: 300px;top: 70px;
+    }
+    #pato3{
+        position:absolute;left: 450px;top: 70px;
+    }
+    #pato4{
+        position:absolute;left: 600px;top: 70px;
+    }
+    #pato5{
+        position:absolute;left: 750px;top: 70px;
+    }
+
+</style>
+<script language="JavaScript">
+$(document).ready(function(){
+    tope = 0,
+    izquierda = 0;
+    $(".dibujo").draggable({
+        start:function(event,ui){
+            tope = this.style.top;
+            izquierda = this.style.left;
+        },
+        stop:function(event,ui){
+             this.style.top = tope;
+             this.style.left = izquierda;
+        }
+    });
+});
+</script>
+</head>
+<body>
+<div id = "pato1" class = "dibujo"><img src="imagenes/pato.jpg" width="100"></div>
+<div id = "pato2" class = "dibujo"><img src="imagenes/pato.jpg" width="100"></div>
+<div id = "pato3" class = "dibujo"><img src="imagenes/pato.jpg" width="100"></div>
+<div id = "pato4" class = "dibujo"><img src="imagenes/pato.jpg" width="100"></div>
+<div id = "pato5" class = "dibujo"><img src="imagenes/pato.jpg" width="100"></div>
+</body>
+</html>

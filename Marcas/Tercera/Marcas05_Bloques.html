@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Drag and drop</title>
+        <link rel="stylesheet" href="Estilos5.css">
+        <script type="application/javascript"> // HTML5
+            function empezar(ev){
+                ev.dataTransfer.effectAllowed = "move"; // Drag and drop
+                ev.dataTransfer.setData("Data", ev.target.getAttribute("id")); // la derecha se pasa a la izquierda. (CLAVE, VALOR)
+                // ev.target el objeto sobre que se ha producido el evento,getAttribute("id") devuelve el id del objeto(ar1, ...).
+                ev.dataTransfer.setDragImage(ev.target, 25, 25); // el objeto que se va a mover, la posicion del objeto que se va a mover.
+                return true;
+            }
+            function terminar(ev){
+                ev.dataTransfer.clearData("Data"); // cuando soltamos, vaciamos la variable Data (clave, valor)
+                return true;
+            }
+            function encima(ev){
+                var arrastrarId = ev.dataTransfer.getData("Data");
+                var contenedorId = ev.target.getAttribute("id");
+                if(contenedorId == 'des1')return false;
+                if((contenedorId == 'des2') && (arrastrarId == 'ar2')) return false;
+                if((contenedorId == 'des3') && (arrastrarId == 'ar3')) return false;
+            }
+            function soltar(ev){
+                var arrastrarId = ev.dataTransfer.getData("Data");
+                ev.target.appendChild(document.getElementById(arrastrarId));
+                ev.stopPropagation();
+                return false;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Arrastrar y soltar con HTML5</h1>
+        <div id="des1" ondragover="return encima(event)" ondrop="return soltar(event)"> <!-- ondragover cuando estas por encima. -->
+            Contenedor 1
+        </div>
+        <div id="des2" ondragover="return encima(event)" ondrop="return soltar(event)">
+            Contenedor 2
+        </div>
+        <div id="des3" ondragover="return encima(event)" ondrop="return soltar(event)">
+            Contenedor 3
+        </div>
+        <div id="ar1" draggable="true" ondragstart="/*return*/ empezar(event)" ondragend="/*return*/ terminar(event)"> <!-- return termina la funcion -->
+            A1
+        </div>
+        <div id="ar2" draggable="true" ondragstart="/*return*/ empezar(event)" ondragend="/*return*/ terminar(event)">
+            A2
+        </div>
+        <div id="ar3" draggable="true" ondragstart="/*return*/ empezar(event)" ondragend="/*return*/ terminar(event)">
+            A3
+        </div>
+    </body>
+</html>

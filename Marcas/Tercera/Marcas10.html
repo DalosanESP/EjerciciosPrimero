@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Canvas 5</title>
+        <link rel="stylesheet" href="Estilos5.css">
+        <script type="application/javascript"> // HTML5
+            window.onload=function(){
+                var ctx = canvas.getContext("2d");// ctx = context
+                for(var i =0; i < 4; i++)
+                    for(var j =0; j < 3; j++){
+                        ctx.beginPath();
+                        var x = 25 + (j*50);//j = 0, 1 y 2, por que en el bucle hemos puesto hasta 3
+                        var y = 25 + (i*50);
+                        var radio = 20;
+                        var angInicio = 0;
+                        var angFinal = Math.PI+(Math.PI*j)/2;
+                        var anticlockwise = ((i%2)==0)?false:true;//sentido o no de las agujas del reloj a la hora de dibujar un arco
+                        ctx.arc(x,y,radio,angInicio, angFinal,anticlockwise);
+                        if(i>1)
+                            ctx.fill();
+                        else
+                            ctx.stroke();
+            }
+        }
+            
+        </script>
+    </head>
+    <body>
+       <canvas id="canvas" width="350" height="350"></canvas>
+    </body>
+</html>

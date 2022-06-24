@@ -1,0 +1,68 @@
+<html>
+    <head>
+    <title>Carrito de la Compra</title>
+    <link rel="stylesheet">
+    <script type="application/javascript">
+    function ver(){
+        cesta.innerHTML = "";
+        if(sessionStorage.length ==0)
+            cesta.innerHTML = "<h5>No tienes productos en el carrito</h5>";
+            else{
+                cesta.innerHTML="<table class=pro width=90%><tr><th>PRO</th><th>UNDS</th></tr></table>"
+                for(var i = 0; i < sessionStorage.length; i++) {
+                        var clave = sessionStorage.key(i);//nombre
+                        var valor = sessionStorage.getItem(clave);//valor
+                        cesta.innerHTML += "<table class=pro width=90%><tr><td>" + clave + "</td><td>" + valor + "</td></tr></table>";
+                    }                                               //si quitamos el img saldra el nombre del producto
+            }
+    }
+    function cargar(cod, nom){
+                var db = openDatabase('MiBaseDatos', '1.0', 'Comentario sobre DB', 2 * 1024 * 1024); // si no existe se crea
+                // nombre DB, version, descripcion, tamaño
+                db.transaction(function(tx){ //transaction define lo que queramos hacer en el DB, tx es como un obejto de la BD
+                    tx.executeSql('CREATE TABLE IF NOT EXISTS DATOS(codigo unique, nombre)');
+                    tx.executeSql('INSERT INTO DATOS(codigo, nombre) VALUES('+ codigo.value +", '"+ nombre.value + "')");
+                });
+                leer();
+            };
+            function leer(){
+                var db = openDatabase('MiBaseDatos', '1.0', 'Comentario sobre DB', 2 * 1024 * 1024);
+                db.transaction(function(tx){
+                    tx.executeSql('SELECT * FROM DATOS', [], function(tx, resultados){
+                        var len = resultados.rows.length;
+                        msg = "<h1 align=center>" + 'CONTENIDO DE DATOS ' + len + "</h1>" + "<table align=center border=1>";
+                        for(i = 0; i < len; i++){
+                            msg += "<tr><td><b>" +  resultados.rows.item(i).codigo + "</b>-" + resultados.rows.item(i).nombre + 
+                                "</td><td><input type='text' id='nuevoNombre')'></td><td><input type='button' id='eliminar' name='eliminar' value='eliminar' onclick='eliminar(" +  resultados.rows.item(i).codigo + ")'></td><td><input type='button' id='modificar' name='modificar' value='modificar' onclick='modificar(" +  resultados.rows.item(i).nombre.value + "," + resultados.rows.item(i).codigo + ")'></td></tr>"; 
+                        };  
+                        estado.innerHTML = msg + "</table>";
+                    });
+                });
+            }
+    function almacenar(codigo){//el codigo es el modelo del pc (asus, hp..)
+        if(sessionStorage.getItem(codigo)==null)
+            sessionStorage.setItem(codigo,1);
+        else
+            sessionStorage.setItem(codigo,parseInt(sessionStorage.getItem(codigo))+1);
+            
+        ver();
+        }
+    </script>
+    </head>
+    <body>
+            <form>
+                <table align="center" border="1">
+                    <tr>
+                        <td>Codigo:</td>
+                        <td><input type="number" id="codigo" name="codigo"></td>
+                        <td>Nombre:</td>
+                        <td><input type="text" id="nombre" name="nombre"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center"><input type="button" value="Insertar" onclick="cargar(document.getElementById('codigo').value, document.getElementById('nombre').value)"></td>
+                    </tr>
+                </table>
+            </form>
+            <div id="estado" name="estado"></div>
+        </body>
+    </html>

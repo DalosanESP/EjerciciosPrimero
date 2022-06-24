@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Canvas 9</title>
+        <link rel="stylesheet" href="Estilos5.css">
+        <script type="application/javascript"> // HTML5
+            window.onload=function(){
+                var ctx = canvas.getContext("2d");// ctx = context
+                var gradiente = ctx.createLinearGradient(0,0,0,canvas.height);
+                
+                gradiente.addColorStop(0,'#005');//Color inicio
+                gradiente.addColorStop(1,'#0F0');//Color final
+
+                ctx.fillStyle = gradiente;
+                ctx.fillRect(0,0,canvas.width,canvas.height);
+        }
+            
+        </script>
+    </head>
+    <body>
+       <canvas id="canvas" width="350" height="350"></canvas>
+    </body>
+</html>

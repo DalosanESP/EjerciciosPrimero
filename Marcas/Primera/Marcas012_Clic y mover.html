@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>Movimientos</title>
+<style type="text/css">
+#cruz{position:absolute;top:200px}
+</style>
+<script language="JavaScript">
+var n=100;
+function mover(){
+	n+=10;
+	cruz.style.left=n;
+//La funcion setInterval recibe como parametro un string con la instruccion o instrucciones en JavaScript
+//El segundo parametro sera un entero que indica el numero de milisegundos que definen el intervalo del tiempo
+}
+</script>
+</head>
+<body >
+<div id="cruz" style="left:100"><img src="Imagenes/cruz.png" height=100></div>
+<input type="button" value="Mover" onclick="mover()">
+</body>
+</html>

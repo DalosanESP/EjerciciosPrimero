@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Cambiar de clase</title>
+<style type="text/css">
+.bloque1{position:absolute;width:300px; top:50px;left:20px;background-color:lemonchiffon}
+.bloque2{position:absolute;width:300px; top:50px;left:400px;background-color:lightcoral}
+</style>
+<script language="JavaScript">
+function cambiar(){
+		if(b1.className=="bloque1"){
+			b1.className="bloque2";
+			b2.className="bloque1";
+	}else{
+			b1.className="bloque1";
+			b2.className="bloque2";
+}
+}
+</script>
+</head>
+<body>
+<div id="b1" class="bloque1">
+<img src="Imagenes/03.jpg" height="35">
+En el fútbol base del Barcelona marcan un punto de inflexión en la relación de los canteranos cuando se convierten en cadetes. “Solo se tiene que prestar 
+atención a las tribunas. Cuando son benjamines o alevines, los padres de todos los niños siempre están juntos. Pero después todo empieza a cambiar. Hay grupitos,
+hay celos… la competencia. Es lo que tiene el fútbol profesional”, explica Aureli Altimira, excoordinador de fútbol 11 en la cantera azulgrana. En la Masia lo
+tienen claro, las amistades que se forjan en la etapa amateur son vitales para el desarrollo de los pequeños futbolistas. Lo raro, sin embargo, es que esas 
+sociedades escalen hasta el primer equipo.
+</div>
+<div id="b2" class="bloque2">
+<img src="Imagenes/04.jpg" height="35">
+Vinícius de Olivera Júnior (Brasil, 2000) es un jugador profesional de fútbol- Se formó en las categorías inferiores del Flamengo y actualmente juega como
+delantero en el Real Madrid C.F. Ha ganado una Liga y un Mundial de Clubes con este equipo, y posee dos Campeonatos Sudamericanos con las selecciones brasileñas 
+sub-15 y sub-17. Sigue todas las noticias de Vinícius Jr.
+</div>
+<input type="button" value="Intercambio" onclick="cambiar()">
+
+</body>
+
+</html>

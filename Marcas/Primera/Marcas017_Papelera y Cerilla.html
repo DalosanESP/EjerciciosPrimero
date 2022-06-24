@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Llamarada</title>
+<style type="text/css">
+img{position:absolute}
+</style>
+<script language="JavaScript">
+var	puntero = null;
+function cargar(){
+	if(event.srcElement.className == "movil")
+		puntero = event.srcElement;
+	//event.srcElement, el evento donde se ha producido el evento
+	}
+function mover(){
+	if(puntero != null){
+		puntero.style.left = event.x -75;
+		puntero.style.top = event.y -75;
+	}
+}
+function soltar(){
+	if(!(((parseInt(puntero.style.left) + puntero.width) < parseInt(papelera.style.left)) || 
+	(parseInt(puntero.style.left) > (parseInt(papelera.style.left) + papelera.width)) ||
+	((parseInt(puntero.style.top) + puntero.heigth) < parseInt(papelera.style.top)) ||
+	(parseInt(puntero.style.top) > (parseInt(papelera.style.top) + papelera.heigth)))){
+		puntero.style.display = "none";
+		if(puntero.id == "cerilla")
+			papelera.src = "Imagenes/llamarada.png"; //cambiamos el src por la imgamen llamarada
+	}
+	//style.left y style.top, devuelven un string "245px"
+	//parseInt, para convertir un string a numero
+    puntero = null;
+}
+</script>
+</head>
+<body onmousedown="cargar()" onmousemove="mover(); return false;" onmouseup="soltar()">
+<img src="Imagenes/papelera.jpg" id="papelera" class="nomover" height="150" width="150" style="left: 500;top: 400;">
+<img src="Imagenes/01.jpg" class="movil" height="150" width="150" style="left: 50;top: 50;">
+<img src="Imagenes/02.jpg" class="movil" height="150" width="150" style="left: 250;top: 50;">
+<img src="Imagenes/03.jpg" class="movil" height="150" width="150" style="left: 500;top: 50;">
+<img src="Imagenes/04.jpg" class="movil" height="150" width="150" style="left: 750;top: 50;">
+<img src="Imagenes/cerilla.jpg" class="movil" id="cerilla" height="150" width="100" style="left: 1000;top: 50;">
+</body>
+</html>

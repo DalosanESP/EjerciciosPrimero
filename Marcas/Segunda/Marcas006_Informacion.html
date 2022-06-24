@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>Evento de raton</title>
+<script type="text/javascript"src="jquery-1.11.2.min.js"></script>
+<script languaje="JavaScript">
+$(document).ready(function(){
+    $(document).on("mousemove",function(e){
+        $("#divCoordenadas").html("<strong>"+e.pageX+"</strong>-<strong>"+e.pageY+"</strong>")
+       }); 
+    $(document).on("contextmenu",function(e){
+        e.preventDefault();
+        $("#divEstado").html("<strong>Click derecho</strong>");
+    });
+    $(document).on("click", function(e){
+        $("#divEstado").html("<strong>Click izquierdo</strong>");
+    });
+    $("#divScroll").on("scroll", function(e){
+        $("#divEstado").html("<strong>Scroll detectado</strong>");
+    });
+});
+</script>
+<style type="text/css">
+    #divCoordenadas{border: 1px solid #ccc; padding: 10px; width: 200px; text-align: center; border-radius: 5px; box-shadow: 1px 1px 10px #c0c0c0; float: left;}
+    #divEstado{padding: 10px; width: 200px; text-align: center; border-radius: 5px; box-shadow: 1px 1px 10px; float: right;}
+    #divScroll{margin: 20px; padding: 10px; border-radius: 5px; box-shadow: 1px 1px 10px #c0c0c0; float: right; height: 100px; overflow-y: scroll;}
+</style>
+</head>
+<body>
+    <div id="divCoordenadas"></div>
+    <div id="divEstado"></div>
+    <div id="divScroll">
+   <p>
+       La foto estaba preparada. El Gobierno en pleno había acudido al Senado para la 
+       proclamación de los resultados de la votación de los Presupuestos Generales del 
+       Estado de 2022. El plan era que no se aceptara ningún cambio en la Cámara Alta y 
+       quedaran aprobados de forma definitiva. Pero la sorpresiva aceptación de una 
+       enmienda de Compromís ha echado al traste ese plan y tendrán que volver al Congreso 
+       para su aprobación definitiva, según ha adelantado la Cadena SER y han confirmado a 
+       elDiario.es fuentes socialistas. La votación se ha saldado con 139 votos a favor, 
+       117 en contra y seis abstenciones. El Congreso tendrá que establecer ahora una fecha 
+       para la votación de esa enmienda -que conllevará el aval definitivo a las cuentas- 
+       antes de que acabe el año para que entren en vigor "en tiempo y forma".
+    </p>
+    <p>
+        El volcán de La Palma tiene los días contados: le quedan tres para que, según los expertos,
+        se dé por concluida su actividad y, por fin, los palmeros y palmeras puedan decir adiós a 
+        la erupción más larga y más destructiva desde que se tienen registros en la isla. Aunque el 
+        tan anhelado final esté a la vuelta de la esquina, pasar página no será tan fácil. Se 
+        necesitará paciencia, tiempo e inversión para recuperar todo aquello que quedó sepultado bajo 
+        las coladas. Por algún punto habrá que empezar: la Isla Bonita se lanza a escribir desde este 
+        25 de diciembre un nuevo capítulo en su historia, el de la reconstrucción.
+    </p>
+    <p>
+        Las diferencias que intentan superar en sus conclusiones de la comisión Kitchen el Grupo
+         Socialista, de una parte, y los de Unidas Podemos y los independentistas, de otra, les 
+         devuelven a dos campos que les separan, cuando no enfrentan, recurrentemente: el Gobierno de
+         Felipe González y la monarquía. Son las distintas referencias a la Ley de Fondos Reservados que 
+         ambos recogen en sus escritos y una alusión a Juan Carlos I de Unidas Podemos las discrepancias 
+         que intentan salvar para presentar un texto conjunto que sí coincidiría en señalar que el
+         espionaje a Bárcenas fue conocido, cuando no consentido o autorizado, por el entonces presidente 
+         del Gobierno, Mariano Rajoy, y la número dos del PP, María Dolores de Cospedal. 
+        </p>
+    <p>
+        El coronavirus seguirá mutando y es algo a lo que hay que acostumbrarse. Los expertos van más allá 
+        y advierten de que toparse con una variante cuya clínica parece más leve (como parece el caso de 
+        ómicron) no significa que dentro de unas semanas o meses no vaya a aparecer otra variante que 
+        pueda ser más virulenta. Aunque los virus buscan perpetuarse y para eso es mejor no acabar con 
+        aquellas personas a las que infectan, toda mutación puede ser neutra, suponer una desventaja o 
+        una ventaja que se traducirá en consecuencias diferentes tras una infección.</p>
+    <p>
+        La escalada de contagios de la sexta ola del coronavirus pone a prueba, una vez más, la capacidad
+        de acción de las comunidades autónomas. El presidente del Gobierno, Pedro Sánchez, ha convocado 
+        este miércoles a los presidentes autonómicos para abordar "la evolución de la pandemia y el 
+        estudio de medidas compartidas para hacerle frente". Un abanico de posibles medidas que, sean las 
+        que sean, tendrá que pasar por manos de los tribunales superiores e incluso por el Supremo para 
+        poder entrar en vigor. Medidas como el pasaporte COVID, los cierres perimetrales o los toques de 
+        queda que, por ahora, no han recibido una respuesta unánime de los jueces territoriales.
+    </p>
+</div>
+</body>
+</html>

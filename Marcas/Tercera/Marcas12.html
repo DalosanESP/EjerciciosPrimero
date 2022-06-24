@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Canvas 7</title>
+        <link rel="stylesheet" href="">
+        <script type="application/javascript"> // HTML5
+            window.onload = function(){
+                var ctx = canvas.getContext("2d") //get context devuelve el objeto Graphics
+                for(var i = 0; i < 100; i++) {
+                    for(var j = 0; j < 100; j++){
+                        // Math.floor hace el redondeo hacia abajo.
+                        ctx.fillStyle = "rgb(" + Math.floor(255 - 42.5 * i) + ", " + Math.floor(255 - 42.5 * j) + ", 0)";
+                        ctx.fillRect(j * 25, i * 25, 25, 25);
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <canvas id="canvas" width="350" height="350"></canvas>
+    </body>
+</html>

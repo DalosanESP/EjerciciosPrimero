@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>Calculadora Digital</title>
+<script language="JavaScript">
+function operar(){    
+    switch(operacion.value){
+        case"+": resultado.innerHTML=parseInt(operando1.value)+parseInt(operando2.value);
+                    break;
+        case"-": resultado.innerHTML=parseInt(operando1.value)-parseInt(operando2.value);
+                    break;
+        case"*": resultado.innerHTML=parseInt(operando1.value)*parseInt(operando2.value);
+                    break;
+        case"/": resultado.innerHTML=parseInt(operando1.value)/parseInt(operando2.value);
+                    break;
+        
+    }
+}
+</script>
+</head>
+<body>
+<table align="center" border="1">
+    <tr>
+        <td><input type="text" id="operando1"></td>
+        <td><select id="operacion">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        </td>
+        <td><input type="text" id="operando2"></td>
+        <td><input type="button" value="=" onclick="operar()"></td>
+        <td id="resultado" width="100"></td>
+
+    </tr>
+
+
+
+</table>
+</body>
+</html>

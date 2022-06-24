@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Menu desplegable 3D</title>
+        <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui.js"></script>
+        <link rel="stylesheet" href="css/jquery-ui.structure.css">
+        <style>
+            #papelera1 {
+                position: absolute;left: 170;top: 70;
+            }
+            #papelera2 {
+                position: absolute;left: 270;top: 70;
+            }
+            #papelera3 {
+                position: absolute;left: 370;top: 70;
+            }
+            #papelera4 {
+                position: absolute;left: 470;top: 70;
+            }
+            #papelera5 {
+                position: absolute;left: 570;top: 70;
+            }
+        </style>
+        <script language="JavaScript">
+            $(document).ready(function() {
+                $(".dibujo").draggable(); // que se puede arrastrar
+            });
+        </script>
+    </head>
+    <body>
+       <div id="papelera1" class="dibujo"><img src="imagenes/papelera.jpg" width="100"></div>
+       <div id="papelera2" class="dibujo"><img src="imagenes/papelera.jpg" width="100"></div>
+       <div id="papelera3" class="dibujo"><img src="imagenes/papelera.jpg" width="100"></div>
+       <div id="papelera4" class="dibujo"><img src="imagenes/papelera.jpg" width="100"></div>
+       <div id="papelera5" class="dibujo"><img src="imagenes/papelera.jpg" width="100"></div>
+
+    </body>
+</html>

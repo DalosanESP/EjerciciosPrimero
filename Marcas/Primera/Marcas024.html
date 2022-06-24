@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Robin Hood</title>
+<style type="text/css">
+img{position:absolute}
+</style>
+<script language="JavaScript">
+function mover(){
+            if(event.y>=55)
+            robin.style.top=event.y-55;
+}
+function disparar(){
+            flecha.style.top=event.y-55;
+            flecha.style.left=150;
+}
+function desplazar(){
+            flecha.style.left=parseInt(flecha.style.left)+200;
+            globo.style.top=parseInt(globo.style.top)-8;
+            if(parseInt(globo.style.top)<-150)
+                globo.style.top=700;
+}
+</script>
+</head>
+<body onmousemove="mover()" onclick="disparar()" onload="setInterval('desplazar()',100)">
+    <img id=robin src="Imagenes/robin.png" height="25%">
+    <img id=flecha src="Imagenes/flecha.png"height="15%" style="top:-100"> 
+    <img id=globo src="Imagenes/globo.png" height="25%" style="top:-8;left:1000">
+</body>
+</html>

@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <title>Formulario con chequeo de inputs</title>
+        <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+        <script>
+        var validosNombre = "^[a-z A-Z]{4,30}$";
+        var validosEmail = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"; //[caracateres que puedes escribir]
+        $(function() {
+            checkForm("#contacto");
+        });
+
+        function checkForm(idForm){ //en idForm esta lo que le has pasado antes. "#contacto"
+            $(idForm + " *").on("change keyup", function(){
+                if(checkInput("#nombre", validosNombre) 
+                && checkInput("#apellidos", validosNombre) 
+                && checkInput("#email", validosEmail)
+                && checkSelect("#edad")
+                && checkTextArea("#comentario")
+                && checkRadioBox("#boletin")
+                && checkRadioBox("#legal")){ 
+                    //cada vez que pulsemos un tecla llamara al metodo checkInput
+                    $(idForm + " button.submit").removeAttr("disabled"); // si los datos son correctos, eliminar disabled
+                }else{
+                    $(idForm + " button.submit").attr("disabled", "disabled"); //attr, propiedad, valor
+                }
+            });
+        }
+        function checkInput(idInput, validacion){
+            return $(idInput).val().match(validacion); 
+            //val, nos devuelve lo que este dentro del input del idInput "#nombre"
+            //match devuelve un booleano si se cumple la condicion de validacion.
+        }
+        function checkSelect(idSelect){
+            return $(idSelect).val()?true:false;//en caso de que value tenga algo devolvemos cierto, si no falso
+        }
+        function checkTextArea(idText){
+            return $(idText).val().length>10?true:false;
+        }
+        function checkRadioBox(nombreRadioBox){
+            return $(nombreRadioBox).is(":checked")?true:false;//si devuelve falso(en cualquiera de los casos) el boton enviar sigue disaabled
+        }
+        </script>
+        <style>
+            form{margin:1em}
+            label{display: block; margin: 0.5em 0;}
+        </style>
+    </head>
+    <body>
+        <form name="contacto" id="contacto" method="post" action="https://www.marca.com/">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" id="nombre" size="30">
+
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" name="apellidos" id="apellidos" size="30">
+            
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" size="60">
+            
+            <label for="edad">Edad:</label>
+            <select name="edad" id="edad">
+                <option></option>
+                <option value="18-25">18 a 25</option>
+                <option value="26-45">26 a 45</option>
+                <option value="46-65">46 a 65</option>
+                <option value="+65">Mas de 65</option>
+            </select>
+            <label for="comentario">Comentario:</label>
+            <textarea name="comentario" id="comentario" cols="40" rows="4"></textarea>
+            
+            
+            <label>¿Quiere recibir nuestro boletin?
+                <input type="radio" name="boletin" id="boletin" value="Si"/>Si
+                <input type="radio" name="boletin" id="boletin" value="No"/>No
+            </label>
+            
+
+            <label for="legal"><input type="checkbox" name="legal" id="legal">Estoy de acuerdo</label>
+            <button class="submit" disabled>Enviar</button> 
+        </form>
+    </body>
+</html>

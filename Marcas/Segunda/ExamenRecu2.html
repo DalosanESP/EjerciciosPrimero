@@ -1,0 +1,38 @@
+<html>
+<head>
+<title> Recuperacion Segundo Trimestre  </title>
+<link rel="stylesheet" type="text/css">
+<script type="text/javascript"src="jquery-1.11.2.min.js"></script>
+<script>
+$(document).ready(function(event){
+    $("#s").click(function avanzar(){ 
+        setInterval(function(){
+        $("#galeria div:gt(0)").hide();
+        $("#galeria div:first-child").slideUp(500).slideDown(1000).next("div").end().appendTo("#galeria").slideUp(500);
+    },2000)
+    })
+    $("#a").click(function atras(){
+       //avanzar.stop
+    setInterval(function(){
+        $("#galeria div:gt(0)").hide();
+        $("#galeria div:first-child").slideUp(500).slideDown(1000).before("div").end().appendTo("#galeria").slideUp(500);
+    },2000)
+    })
+});
+</script>
+<style>
+    ul{width:600;height: 400; overflow: hidden}
+    ul,li{padding: 0px; margin:0px}
+    li{list-style:none; float:left}
+</style>
+</head>
+<body>
+    <ul id="galeria">
+        <div><img src="Imagenes/fondo.jpg" width="600" height="400"></div>
+        <div><img src="Imagenes/jim.jpg"width="600" height="400"></div>
+        <div><img src="Imagenes/jesse.jpg" width="600" height="400"></div>
+    </ul>
+    <button id="s">S</button>
+    <button id="a">A</button>
+</body>
+</html>

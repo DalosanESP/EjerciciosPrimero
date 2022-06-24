@@ -1,0 +1,81 @@
+<html>
+    <head>
+    <title>Carrito de la Compra</title>
+    <link rel="stylesheet" href="Estilos4.css"/>
+    <script type="application/javascript">
+    function ver(){
+        cesta.innerHTML = "";
+        if(sessionStorage.length ==0)
+            cesta.innerHTML = "<h5>No tienes productos en el carrito</h5>";
+            else{
+                cesta.innerHTML="<table class=pro width=90%><tr><th>PRO</th><th>UNDS</th><th>Eliminar</th></tr></table>"
+                for(var i = 0; i < sessionStorage.length; i++) {
+                        var clave = sessionStorage.key(i);//nombre
+                        var valor = sessionStorage.getItem(clave);//valor
+                        cesta.innerHTML += "<table class=pro width=90%><tr><td><img src=iconos2/" + clave + ".jpg></td><td>" + valor + "</td><td><img src=Imagenes/papelera.jpg onclick=borrar('" + clave + "')></tr></table>";
+                    }                                               //si quitamos el img saldra el nombre del producto
+            }
+    }
+    function borrar(codigo){
+        if(sessionStorage.getItem(codigo)==1)
+            sessionStorage.removeItem(codigo);
+        else
+            sessionStorage.setItem(codigo,parseInt(sessionStorage.getItem(codigo))-1);
+        ver();
+    }
+    function almacenar(codigo){//el codigo es el modelo del pc (asus, hp..)
+        if(sessionStorage.getItem(codigo)==null)
+            sessionStorage.setItem(codigo,1);
+        else
+            sessionStorage.setItem(codigo,parseInt(sessionStorage.getItem(codigo))+1);
+            
+        ver();
+        }
+    </script>
+    </head>
+    <body onload="ver()">
+     <div id="principal">
+         <h1>TIENDA ONLINE</h1>
+         <div id="productos">
+             <table>
+                <tr>
+                     <th>IMAGEN</th>
+                     <th>DESCRIPCION</th>
+                     <th>COMPRAR</th>
+                </tr>
+                <tr>
+                    <td><img src="iconos2/msi.jpg"></td>
+                    <td><span id="d1">Ordenador MSI</span></td>
+                    <td><input type="button" value="Comprar" onclick="almacenar('MSI')"></td>
+                </tr>
+                <tr>
+                    <td><img src="iconos2/asus.jpg"></td>
+                    <td><span id="d2">Ordenador ASUS</span></td>
+                    <td><input type="button" value="Comprar" onclick="almacenar('ASUS')"></td>
+                </tr>
+                <tr>
+                    <td><img src="iconos2/lenovo.jpg"></td>
+                    <td><span id="d3">Ordenador LENOVO</span></td>
+                    <td><input type="button" value="Comprar" onclick="almacenar('LENOVO')"></td>
+                </tr>
+                <tr>
+                    <td><img src="iconos2/samsung.jpg"></td>
+                    <td><span id="d4">Ordenador SAMSUNG</span></td>
+                    <td><input type="button" value="Comprar" onclick="almacenar('SAMSUNG')"></td>
+                </tr>
+                <tr>
+                    <td><img src="iconos2/hp.jpg"></td>
+                    <td><span id="d5">Ordenador HP</span></td>
+                    <td><input type="button" value="Comprar" onclick="almacenar('HP')"></td>
+                </tr>
+             </table>
+         </div>
+         <div id="carrito">
+             <h4>Este es el estado del carrito</h4>
+             <div id="cesta"></div>
+             <div id="total"></div>
+         </div>
+         <div id="pie"></div>
+     </div>
+    </body>
+</html>

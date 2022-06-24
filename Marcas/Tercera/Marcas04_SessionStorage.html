@@ -1,0 +1,29 @@
+<html>
+    <head>
+    <title>Carrito de la Compra</title>
+    <script language="JavaScript">
+        function manipular(){//key = nombre - value = numero
+            contenido.innerHTML = sessionStorage.length;
+            sessionStorage.setItem("Antonio",18);
+            contenido.innerHTML += "<br>"+sessionStorage.length;//para ver cuantos usuarios hay almacenados
+            sessionStorage.key(0);
+            contenido.innerHTML += "<br>"+sessionStorage.key(0);
+            contenido.innerHTML += "<br>"+sessionStorage.getItem("Antonio");//devuelve el valor asociado a la clave
+            sessionStorage.setItem("Juan",20);
+            contenido.innerHTML += "<br>"+sessionStorage.length;
+            contenido.innerHTML += "<br>"+sessionStorage.key(1) + "-" + sessionStorage.getItem("Juan");
+            sessionStorage.removeItem("Antonio");//Para eliminar un elemento
+            contenido.innerHTML += "<br>"+sessionStorage.length;
+            contenido.innerHTML += "<br>"+sessionStorage.key(1);
+            contenido.innerHTML += "<br>"+sessionStorage.key(0);
+            sessionStorage.clear();//Para borrar todo
+            contenido.innerHTML += "<br>"+sessionStorage.length;
+        }
+    </script>
+    </head>
+    <body onload="manipular()">
+        <div id="contenido">
+            
+        </div>
+    </body>
+</html>

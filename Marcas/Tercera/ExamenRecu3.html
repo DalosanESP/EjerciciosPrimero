@@ -1,0 +1,58 @@
+<html>
+    <head>
+    <title>Recuperacion Tercera</title>
+    <link rel="stylesheet" href="EstilosRecu.css"/>
+    <script type="application/javascript">
+        
+    function ver(){
+        clave.innerHTML = "";
+        if(sessionStorage.length ==0)
+            clave.innerHTML = "<h5>VACIO</h5>";
+            else{
+                clave.innerHTML="<table class=pro width=90%><tr><th>NOMBRE</th><th>ID</th><th>ELIMINAR</th></tr></table>"
+                for(var i = 0; i < sessionStorage.length; i++) {
+                        var nombre = sessionStorage.key(i);//nombre
+                        var valor = sessionStorage.getItem(clave);//valor
+                        clave.innerHTML += "<table class=pro width=90%><tr><td><" + nombre + "</td><td>" + valor + "</td><td><img src=Imagenes/papelera.jpg width=15% onclick=borrar('" + nombre + "')></tr></table>";
+                    }                                              
+            }
+    }
+
+    function borrar(nombre){
+            sessionStorage.removeItem(nombre);
+        ver();
+    }
+
+    function insertar(nombre,valor){
+            sessionStorage.setItem(nombre,valor);
+        ver();
+        }
+
+    </script>
+    </head>
+    <body onload="ver()">
+     <div id="principal">
+    <form>
+        <table align="center" border="1">
+            <tr>
+                <td>Codigo:</td>
+                <td><input type="number" id="codigo" name="codigo"></td>
+                <td>Nombre:</td>
+                <td><input type="text" id="nombre" name="nombre"></td>
+                
+            </tr>
+            <tr>
+                <td colspan="4" align="center"><input type="button" value="Insertar" onclick="insertar(document.getElementById('nombre').value, document.getElementById('valor').value)"></td>
+            </tr>
+        </table>
+    </form>
+    <div id="estado" name="estado"></div>
+         <div id="carrito">
+             <h4>Estado de la variable</h4>
+             <div id="clave"></div>
+             <div id="valor"></div>
+         </div>
+         <div id="pie"></div>
+     </div>
+    </body>
+</html>

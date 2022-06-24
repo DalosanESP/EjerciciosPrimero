@@ -1,0 +1,20 @@
+<html>
+<head>
+<title> parar imagen</title>
+<script language = "JavaScript">
+    function cambiar(){
+        if(imagen.src == "file:///C:/.Salesianos/Marcas/Primera/Imagenes/01.jpg")
+        imagen.src = "imagenes/1.jpg";
+        else
+        imagen.src = "imagenes/0.jpg";
+    }
+    function parar(){
+        clearInterval(objeto);
+    }
+</script>
+</head>
+<body onload="objeto = setInterval('cambiar()', 2000)"> 
+<img src="Imagenes/01.jpg" id="imagen" width="300" height="300">
+<input type="button" value ="Parar" onclick="parar()">
+</body>
+</html>

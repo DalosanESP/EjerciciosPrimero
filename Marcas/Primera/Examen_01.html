@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>Examen_01</title>
+<style type="text/css">
+.color1{background-color:red;width:100;height:100;text-align:center;border:10;}
+.color2{background-color:blue;width:100;height:100;text-align:center;border:10;}
+.color3{background-color:green;width:100;height:100;text-align:center;border:10;}
+.color4{background-color:yellow;width:100;height:100;text-align:center;border:10;}
+.sincolor{width:100;height:100;text-align:center}
+</style>
+<script language="JavaScript">
+function cambiar1(){
+	objeto=event.srcElement;
+	if(objeto.className=="sincolor")
+		event.srcElement.className="color1";
+}
+function cambiar2(){
+	objeto=event.srcElement;
+	if(objeto.className=="sincolor")
+		event.srcElement.className="color2";
+}
+function cambiar3(){
+	objeto=event.srcElement;
+	if(objeto.className=="sincolor")
+		event.srcElement.className="color3";
+}
+function cambiar4(){
+	objeto=event.srcElement;
+	if(objeto.className=="sincolor")
+		event.srcElement.className="color4";
+}
+</script>
+</head>
+<body onclick="cambiar1(), cambiar2(), cambiar3(), cambiar4()" >
+<table align="center" border="5" >
+	<tr>
+		<td class="sincolor"></td>
+        <td class="sincolor"></td>
+        <td class="sincolor"></td>
+        <td class="sincolor"></td>
+	</tr>
+	<tr>
+		<td class="sincolor"></td>
+        <td class="sincolor"></td>
+        <td class="sincolor"></td>
+        <td class="sincolor"></td>
+	</tr>
+	<tr>
+		<td class="sincolor"></td>
+        <td class="sincolor"></td>
+        <td class="sincolor"></td>
+        <td class="sincolor"></td>
+	</tr>
+    <tr>
+		<td class="color1" ></td>
+        <td class="color2" ></td>
+        <td class="color3" ></td>
+        <td class="color4" ></td>
+	</tr>
+
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<html>
+    <head>
+    <title>Ejercicio 1</title>
+    <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="jquery-ui.structure.css"/>
+    <script language="JavaScript">
+    $(document).ready(function(){
+            $("#ocultar").click(function(event){
+                $("#rectangulo").slideUp();
+            });
+            $("#desplazar").click(function(){
+                $("#rectangulo").animate({left:'500px'}, "slow");
+            }); 
+            $("#desaparecer").click(function(event){
+                $("#rectangulo").hide(5000);
+            });
+            $("#opacidad").click(function(event){
+                $("#rectangulo").fadeOut(5000);
+            }); 
+            $("#extender").click(function(event){
+                $("#rectangulo").slideUp(5000);
+                $("#rectangulo").slideDown(5000);
+            });
+});
+    </script>
+    </head>
+    <body>
+        <input type="button" id="ocultar" value="Ocultar en forma de persiana"></input>
+        <input type="button" id="desplazar" value="Desplazar a la derecha"></input>
+        <input type="button" id="color" value="Cambiar de Color"></input>
+        <input type="button" id="opacidad" value="Desaparecer Opacidad"></input>
+        <input type="button" id="desaparecer" value="Ocultar"></input>
+        <input type="button" id="extender" value="Ocultar y extender"></input>
+        <div id="rectangulo" style="height: 300px; width: 300px;background-color: blue; position: absolute"></div>
+    </body>
+</html>

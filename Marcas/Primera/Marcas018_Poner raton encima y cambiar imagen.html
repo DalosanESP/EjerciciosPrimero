@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>Trabajando con Eventos</title>
+<style type="text/css">
+img{position:absolute}
+</style>
+<script language="JavaScript">
+function cambiar(){
+    imagen.src="Imagenes/cerilla.jpg";
+}
+function restaurar(){
+    imagen.src="Imagenes/02.jpg";
+}
+</script>
+</head>
+<body>
+<img src="Imagenes/02.jpg" id="imagen" onmouseover="cambiar()" onmouseout="restaurar()" height="150" width="150">
+</body>
+</html>

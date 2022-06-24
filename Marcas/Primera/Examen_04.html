@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>Examen_04</title>
+<style type="text/css">
+img{position:absolute}
+#imagen1{top:450px; left:250px}
+#imagen2{top:450px; left:500px}
+#imagen3{top:450px; left:750px}
+#imagen4{top:450px; left:1000px}
+#imagen1a{top:0px;left: 250px}
+#imagen2a{top:0px;left: 500px}
+#imagen3a{top:0px;left: 750px}
+#imagen4a{top:0px;left: 1000px}
+</style>
+<script language="JavaScript">
+function cambiar1(){
+	if(imagen1a.style.display=="none")
+		imagen1a.style.display="";
+        imagen1.style.display="none";
+}
+function cambiar2(){
+	if(imagen2a.style.display=="none")
+		imagen2a.style.display="";
+        imagen2.style.display="none";
+}
+function cambiar3(){
+	if(imagen3a.style.display=="none")
+		imagen3a.style.display="";
+        imagen3.style.display="none";
+}
+function cambiar4(){
+	if(imagen4a.style.display=="none")
+		imagen4a.style.display="";
+        imagen4.style.display="none";
+}
+function cambiar1a(){
+	if(imagen1.style.display=="none")
+		imagen1.style.display="";
+        imagen1a.style.display="none";
+}
+function cambiar2a(){
+	if(imagen2.style.display=="none")
+		imagen2.style.display="";
+        imagen2a.style.display="none";
+}
+function cambiar3a(){
+	if(imagen3.style.display=="none")
+		imagen3.style.display="";
+        imagen3a.style.display="none";
+}
+function cambiar4a(){
+	if(imagen4.style.display=="none")
+		imagen4.style.display="";
+        imagen4a.style.display="none";
+}
+</script>
+</head>
+<body>
+    <img src="Imagenes/01.jpg" id="imagen1a" height="150" width="150" style="display: none;"  onclick="cambiar1a()">
+    <img src="Imagenes/02.jpg" id="imagen2a" height="150" width="150" style="display: none;"  onclick="cambiar2a()">
+    <img src="Imagenes/03.jpg" id="imagen3a" height="150" width="150" style="display: none;"  onclick="cambiar3a()">
+    <img src="Imagenes/04.jpg" id="imagen4a" height="150" width="150" style="display: none;"  onclick="cambiar4a()">
+    <img src="Imagenes/01.jpg" id="imagen1" height="150" width="150"  onclick="cambiar1()">
+    <img src="Imagenes/02.jpg" id="imagen2" height="150" width="150"  onclick="cambiar2()">
+    <img src="Imagenes/03.jpg" id="imagen3" height="150" width="150"  onclick="cambiar3()">
+    <img src="Imagenes/04.jpg" id="imagen4" height="150" width="150"  onclick="cambiar4()">    
+</body>
+</html>
